@@ -2816,7 +2816,7 @@ public class DownloadHelper {
               if(debug) Log.e(tag, "getFoodieProductName: can't get Foodie product");
               errorListener.onError(error);
             },
-            OpenFoodFactsApi.getUserAgent(application)
+            FoodieApi.getUserAgent(application)
     );
   }
 

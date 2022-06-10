@@ -201,7 +201,7 @@ public class ChooseProductViewModel extends BaseViewModel {
               nameFromOnlineSource = productName;
               offHelpText.setValue(getString(R.string.msg_product_name_off));
             }
-            if (productName != null && !productName.isEmpty()) {
+            if (nameFromOnlineSource == null) {
               dlHelper.getOpenFoodFactsProductName(
                       barcode,
                       productNameOpenFoodFacts -> {
