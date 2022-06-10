@@ -78,8 +78,15 @@ public class BaseViewModel extends AndroidViewModel {
 
   public boolean isOpenFoodFactsEnabled() {
     return sharedPrefs.getBoolean(
-        SETTINGS.BEHAVIOR.FOOD_FACTS,
-        SETTINGS_DEFAULT.BEHAVIOR.FOOD_FACTS
+            SETTINGS.BEHAVIOR.FOOD_FACTS,
+            SETTINGS_DEFAULT.BEHAVIOR.FOOD_FACTS
+    );
+  }
+
+  public boolean isFoodieEnabled() {
+    return sharedPrefs.getBoolean(
+            SETTINGS.BEHAVIOR.FOODIE,
+            SETTINGS_DEFAULT.BEHAVIOR.FOODIE
     );
   }
 

@@ -203,6 +203,37 @@
         </LinearLayout>
 
         <LinearLayout
+            style="@style/Widget.Grocy.LinearLayout.ListItem.TwoLine.Icon.Clickable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{v -> switchFoodie.setChecked(!switchFoodie.isChecked())}">
+
+          <ImageView
+              android:id="@+id/image_foodie"
+              style="@style/Widget.Grocy.ImageView.ListItem.Icon"
+              android:src="@drawable/ic_round_barcode"
+              tools:ignore="ContentDescription" />
+
+          <LinearLayout style="@style/Widget.Grocy.LinearLayout.ListItem.TextBox.Stretch">
+
+            <TextView
+                style="@style/Widget.Grocy.TextView.ListItem.Title"
+                android:text="@string/setting_foodie" />
+
+            <TextView
+                style="@style/Widget.Grocy.TextView.ListItem.Description"
+                android:text="@string/setting_foodie_description" />
+
+          </LinearLayout>
+
+          <com.google.android.material.switchmaterial.SwitchMaterial
+              android:id="@+id/switch_foodie"
+              style="@style/Widget.Grocy.Switch"
+              android:checked="@={viewModel.useFoodieEnabled}"/>
+
+        </LinearLayout>
+
+        <LinearLayout
           style="@style/Widget.Grocy.LinearLayout.ListItem.TwoLine.Icon.Clickable"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"

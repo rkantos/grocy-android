@@ -50,6 +50,7 @@ import xyz.zedler.patrick.grocy.api.GrocyApi;
 import xyz.zedler.patrick.grocy.api.GrocyApi.ENTITY;
 import xyz.zedler.patrick.grocy.api.OpenBeautyFactsApi;
 import xyz.zedler.patrick.grocy.api.OpenFoodFactsApi;
+import xyz.zedler.patrick.grocy.api.FoodieApi;
 import xyz.zedler.patrick.grocy.database.AppDatabase;
 import xyz.zedler.patrick.grocy.model.Chore;
 import xyz.zedler.patrick.grocy.model.ChoreDetails;
@@ -85,6 +86,10 @@ import xyz.zedler.patrick.grocy.web.CustomJsonArrayRequest;
 import xyz.zedler.patrick.grocy.web.CustomJsonObjectRequest;
 import xyz.zedler.patrick.grocy.web.CustomStringRequest;
 import xyz.zedler.patrick.grocy.web.RequestQueueSingleton;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class DownloadHelper {
 
@@ -2782,6 +2787,36 @@ public class DownloadHelper {
           errorListener.onError(error);
         },
         OpenFoodFactsApi.getUserAgent(application)
+    );
+  }
+
+  public void getFoodieProductName(
+          String barcode,
+          OnStringResponseListener successListener,
+          OnErrorListener errorListener
+  ) {
+    get(
+            FoodieApi.getProduct(barcode),
+            response -> {
+              String language = application.getResources().getConfiguration().locale.getLanguage();
+              String country = application.getResources().getConfiguration().locale.getCountry();
+              String both = language + "_" + country;
+              if(debug) Log.i(tag, "getFoodieProductName: locale = " + both);
+              try {
+                Document FoodieDocument = Jsoup.parse(response);
+                String name = FoodieDocument.select("[data-test-id=\"product-name\"]").text();
+                successListener.onResponse(name);
+                if(debug) Log.i(tag, "getFoodieProductName: Foodie = " + name);
+              } catch (Exception e) {
+                if(debug) Log.e(tag, "getFoodieProductName: " + e);
+                successListener.onResponse(null);
+              }
+            },
+            error -> {
+              if(debug) Log.e(tag, "getFoodieProductName: can't get Foodie product");
+              errorListener.onError(error);
+            },
+            OpenFoodFactsApi.getUserAgent(application)
     );
   }
 

@@ -990,6 +990,8 @@
   <string name="setting_language_not_available">Not available</string>
   <string name="setting_open_food_facts">Use Open Food Facts and Open Beauty Facts</string>
   <string name="setting_open_food_facts_description">Get info from barcodes</string>
+  <string name="setting_foodie">Use Foodie scraping</string>
+  <string name="setting_foodie_description">Get info from Foodie barcodes</string>
   <string name="setting_choose_barcode_scanner">Choose barcode scanner</string>
   <string name="setting_choose_barcode_scanner_description">For camera barcode scanning</string>
   <!-- Note for app maintainers: Only relevant for Play Store and GitHub variant, it's here because strings for Transifex must be in master branch. -->

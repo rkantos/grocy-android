@@ -270,6 +270,18 @@ public class SettingsViewModel extends BaseViewModel {
         .putBoolean(Constants.SETTINGS.BEHAVIOR.FOOD_FACTS, enabled).apply();
   }
 
+  public boolean getUseFoodieEnabled() {
+    return sharedPrefs.getBoolean(
+            BEHAVIOR.FOODIE,
+            SETTINGS_DEFAULT.BEHAVIOR.FOODIE
+    );
+  }
+
+  public void setUseFoodieEnabled(boolean enabled) {
+    sharedPrefs.edit()
+            .putBoolean(Constants.SETTINGS.BEHAVIOR.FOODIE, enabled).apply();
+  }
+
   public boolean getExpandBottomSheetsEnabled() {
     return sharedPrefs.getBoolean(
         Constants.SETTINGS.BEHAVIOR.EXPAND_BOTTOM_SHEETS,

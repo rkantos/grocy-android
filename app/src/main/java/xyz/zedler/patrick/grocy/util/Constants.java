@@ -137,6 +137,7 @@ public final class Constants {
 
       public final static String BEGINNER_MODE = "beginner_mode";
       public final static String FOOD_FACTS = "food_facts";
+      public final static String FOODIE = "foodie";
       public final static String EXPAND_BOTTOM_SHEETS = "expand_bottom_sheets";
       public final static String SPEED_UP_START = "speed_up_start";
       public final static String DATE_KEYBOARD_INPUT = "date_keyboard_input";
@@ -233,6 +234,7 @@ public final class Constants {
 
       public final static boolean BEGINNER_MODE = true;
       public final static boolean FOOD_FACTS = false;
+      public final static boolean FOODIE = false;
       public final static boolean EXPAND_BOTTOM_SHEETS = false;
       public final static boolean SPEED_UP_START = false;
       public final static boolean DATE_KEYBOARD_INPUT = false;

@@ -120,4 +120,7 @@ dependencies {
     implementation 'info.guardianproject.netcipher:netcipher:2.1.0'
 
     implementation 'org.conscrypt:conscrypt-android:2.5.2'
+
+    //Jsoup HTML parser library
+    implementation 'org.jsoup:jsoup:1.15.1'
 }
